@@ -1,0 +1,20 @@
+{
+  "name": "replaylens",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "demo": "vite demo-site --host 127.0.0.1 --port 5174 --strictPort",
+    "sdk:build": "esbuild sdk/src/index.js --bundle --platform=browser --format=iife --outfile=demo-site/public/replaylens.js",
+    "preview:build": "esbuild demo-site/preview.js --bundle --platform=browser --format=iife --outfile=demo-site/public/replaylens-preview.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "vite": "^8.3.5"
+  }
+}

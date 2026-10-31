@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ReplayLens Demo</title>
+
+    <style>
+      body {
+        max-width: 720px;
+        margin: 48px auto;
+        padding: 0 20px;
+        font-family: system-ui, sans-serif;
+        line-height: 1.6;
+      }
+
+      button {
+        padding: 12px 18px;
+        margin-right: 12px;
+        cursor: pointer;
+        font: inherit;
+      }
+    </style>
+
+    <script src="/replaylens.js" defer></script>
+    <script type="module" src="/main.js"></script>
+    <script src="/replaylens-preview.js" defer></script><script src="/replaylens-preview.js" defer></script>
+  </head>
+
+  <body>
+    <h1>ReplayLens Demo</h1>
+    <p>Our test page for recording and replaying browser interactions.</p>
+
+    <button id="working-button" type="button">Add to cart</button>
+    <button id="dead-button" type="button">Download report</button>
+
+    <p id="cart-status">Cart is empty.</p>
+    <section>
+        <h2>Privacy test cases</h2>
+
+        <p>
+            <label for="demo-email">Email</label>
+            <input
+            id="demo-email"
+            type="email"
+            value="demo@example.com"
+            />
+        </p>
+
+        <p>
+            <label for="demo-password">Password</label>
+            <input
+            id="demo-password"
+            type="password"
+            value="fake-password-123"
+            />
+        </p>
+
+        <p id="private-note" data-replay-mask>
+            Fictional private customer note.
+        </p>
+
+        <div data-replay-block>
+            <p id="blocked-content" data-replay-mask>
+            This entire area should be excluded.
+            </p>
+        </div>
+    </section>
+
+    <section data-replay-block>
+        <h2>Snapshot preview</h2>
+
+        <button id="preview-button" type="button">
+            Capture and preview
+        </button>
+
+        <div style="overflow: auto; margin-top: 16px;">
+            <iframe
+            id="replay-frame"
+            title="ReplayLens snapshot preview"
+            sandbox="allow-same-origin"
+            style="display: block; border: 1px solid #aaa; pointer-events: none;"
+            ></iframe>
+        </div>
+    </section>
+  </body>
+</html>
